@@ -1,4 +1,5 @@
 import { Response } from 'express';
+import { Dictionary } from 'express-serve-static-core';
 
 interface MockResponse extends Response {
   append: jest.Mock;
@@ -24,7 +25,7 @@ interface MockResponse extends Response {
   vary: jest.Mock;
 }
 
-export function mockResponse() {
+export function mockResponse(options?: Dictionary<any>) {
   const mock: unknown = {
     app: {},
     headersSent: false,
@@ -50,6 +51,7 @@ export function mockResponse() {
     status: jest.fn(),
     type: jest.fn(),
     vary: jest.fn(),
+    ...options,
   };
   return mock as MockResponse;
 }

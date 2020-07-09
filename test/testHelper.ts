@@ -29,4 +29,20 @@ export function commonTests({ factory, expectedMethods, expectedProperties }: Te
       expect(mock[method].mock).toBeDefined();
     });
   });
+
+  it('should include additional provided properties and methods', () => {
+    const testFunction = () => {};
+    const mock = factory({ new: 'property', newMethod: testFunction });
+
+    expect(mock['new']).toBe('property');
+    expect(mock['newMethod']).toBe(testFunction);
+  });
+
+  it('should override default values with provided ones', () => {
+    const firstMock = factory();
+    const secondMock = factory({ app: { test: 'application' } });
+
+    expect(firstMock.app).toEqual({});
+    expect(secondMock.app).toEqual({ test: 'application' });
+  });
 }

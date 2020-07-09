@@ -1,8 +1,5 @@
 import { Application, Request } from 'express';
-
-interface Dictionary<T> {
-  [key: string]: T;
-}
+import { Dictionary } from 'express-serve-static-core';
 
 interface MockRequest extends Request {
   accepts: jest.Mock;
