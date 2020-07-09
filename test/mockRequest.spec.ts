@@ -55,5 +55,21 @@ describe('mockRequest()', () => {
         expect(mock[method].mock).toBeDefined();
       });
     });
+
+    it('should include additional provided properties and methods', () => {
+      const testFunction = () => {};
+      const mock = mockRequest({ new: 'property', newMethod: testFunction });
+
+      expect(mock['new']).toBe('property');
+      expect(mock['newMethod']).toBe(testFunction);
+    });
+
+    it('should override default values with provided ones', () => {
+      const firstMock = mockRequest();
+      const secondMock = mockRequest({ path: 'somePath' });
+
+      expect(firstMock.path).toBe('');
+      expect(secondMock.path).toBe('somePath');
+    });
   });
 });

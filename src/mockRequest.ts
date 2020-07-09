@@ -1,5 +1,9 @@
 import { Application, Request } from 'express';
 
+interface Dictionary<T> {
+  [key: string]: T;
+}
+
 interface MockRequest extends Request {
   accepts: jest.Mock;
   acceptsCharsets: jest.Mock;
@@ -10,7 +14,7 @@ interface MockRequest extends Request {
   range: jest.Mock;
 }
 
-export function mockRequest() {
+export function mockRequest(options?: Dictionary<any>) {
   const mock: unknown = {
     app: {},
     baseUrl: '',
@@ -39,6 +43,7 @@ export function mockRequest() {
     get: jest.fn(),
     is: jest.fn(),
     range: jest.fn(),
+    ...options,
   };
   return mock as MockRequest;
 }
