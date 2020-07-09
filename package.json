@@ -1,0 +1,73 @@
+{
+  "name": "jest-mock-req-res",
+  "version": "1.0.0",
+  "description": "Jest mocks for Express Request and Response objects. Inspired by mock-req-res.",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "esmodule": "dist/index.modern.js",
+  "umd:main": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
+  "directories": {
+    "lib": "dist",
+    "test": "test"
+  },
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch",
+    "test": "jest --runInBand",
+    "coverage": "jest --coverage --runInBand"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Carnubak/jest-mock-req-res.git"
+  },
+  "keywords": [
+    "jest",
+    "express",
+    "mock",
+    "request",
+    "response",
+    "mock-req-res"
+  ],
+  "author": "Carnubak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Carnubak/jest-mock-req-res/issues"
+  },
+  "homepage": "https://github.com/Carnubak/jest-mock-req-res#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
+    "@types/express": "^4.17.6",
+    "@types/jest": "^26.0.3",
+    "@typescript-eslint/eslint-plugin": "^3.5.0",
+    "@typescript-eslint/parser": "^3.5.0",
+    "eslint": "^7.4.0",
+    "husky": "^4.2.5",
+    "jest": "^26.1.0",
+    "lint-staged": "^10.2.11",
+    "microbundle": "^0.12.2",
+    "prettier": "^2.0.5",
+    "typescript": "^3.9.6"
+  },
+  "peerDependencies": {
+    "jest": ">=13.x"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 120,
+    "arrowParens": "avoid"
+  },
+  "lint-staged": {
+    "**/*.{ts,json,md}": [
+      "prettier --write"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  }
+}
