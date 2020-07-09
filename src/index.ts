@@ -1,1 +1,3 @@
-export default class TestClass {}
+import { mockRequest } from './mockRequest';
+
+export { mockRequest };

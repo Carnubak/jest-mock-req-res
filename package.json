@@ -49,6 +49,7 @@
     "lint-staged": "^10.2.11",
     "microbundle": "^0.12.2",
     "prettier": "^2.0.5",
+    "ts-jest": "^26.1.1",
     "typescript": "^3.9.6"
   },
   "peerDependencies": {
@@ -69,5 +70,8 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged"
     }
+  },
+  "jest": {
+    "preset": "ts-jest"
   }
 }
