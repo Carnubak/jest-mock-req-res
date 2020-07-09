@@ -59,4 +59,16 @@ describe('mockResponse()', () => {
       expect(mock[method]()).toBe(mock);
     });
   });
+
+  it('should alias the set() method as header()', () => {
+    const mock = mockResponse();
+
+    expect(mock.header).toBe(mock.set);
+  });
+
+  it('should alias the type() method as contentType()', () => {
+    const mock = mockResponse();
+
+    expect(mock.contentType).toBe(mock.type);
+  });
 });

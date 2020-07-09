@@ -4,12 +4,14 @@ import { Dictionary } from 'express-serve-static-core';
 interface MockResponse extends Response {
   append: jest.Mock;
   attachment: jest.Mock;
-  cookie: jest.Mock;
   clearCookie: jest.Mock;
+  contentType: jest.Mock;
+  cookie: jest.Mock;
   download: jest.Mock;
   end: jest.Mock;
   format: jest.Mock;
   get: jest.Mock;
+  header: jest.Mock;
   json: jest.Mock;
   jsonp: jest.Mock;
   links: jest.Mock;
@@ -26,18 +28,23 @@ interface MockResponse extends Response {
 }
 
 export function mockResponse(options?: Dictionary<any>) {
+  const setMethod = jest.fn().mockReturnThis();
+  const typeMethod = jest.fn().mockReturnThis();
+
   const mock: unknown = {
     app: {},
     headersSent: false,
     locals: {},
     append: jest.fn().mockReturnThis(),
     attachment: jest.fn().mockReturnThis(),
-    cookie: jest.fn().mockReturnThis(),
     clearCookie: jest.fn().mockReturnThis(),
+    contentType: typeMethod,
+    cookie: jest.fn().mockReturnThis(),
     download: jest.fn(),
     end: jest.fn(),
     format: jest.fn().mockReturnThis(),
     get: jest.fn(),
+    header: setMethod,
     json: jest.fn().mockReturnThis(),
     jsonp: jest.fn().mockReturnThis(),
     links: jest.fn().mockReturnThis(),
@@ -47,9 +54,9 @@ export function mockResponse(options?: Dictionary<any>) {
     send: jest.fn().mockReturnThis(),
     sendFile: jest.fn(),
     sendStatus: jest.fn().mockReturnThis(),
-    set: jest.fn().mockReturnThis(),
+    set: setMethod,
     status: jest.fn().mockReturnThis(),
-    type: jest.fn().mockReturnThis(),
+    type: typeMethod,
     vary: jest.fn().mockReturnThis(),
     ...options,
   };

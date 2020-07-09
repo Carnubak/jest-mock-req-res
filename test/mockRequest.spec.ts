@@ -28,4 +28,10 @@ describe('mockRequest()', () => {
   const expectedMethods = ['accepts', 'acceptsCharsets', 'acceptsEncodings', 'acceptsLanguages', 'get', 'is', 'range'];
 
   commonTests({ factory: mockRequest, expectedProperties, expectedMethods });
+
+  it('should alias the get() method as header()', () => {
+    const mock = mockRequest();
+
+    expect(mock.header).toBe(mock.get);
+  });
 });

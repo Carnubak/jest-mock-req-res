@@ -7,11 +7,14 @@ interface MockRequest extends Request {
   acceptsEncodings: jest.Mock;
   acceptsLanguages: jest.Mock;
   get: jest.Mock;
+  header: jest.Mock;
   is: jest.Mock;
   range: jest.Mock;
 }
 
 export function mockRequest(options?: Dictionary<any>) {
+  const getMethod = jest.fn();
+
   const mock: unknown = {
     app: {},
     baseUrl: '',
@@ -37,7 +40,8 @@ export function mockRequest(options?: Dictionary<any>) {
     acceptsCharsets: jest.fn(),
     acceptsEncodings: jest.fn(),
     acceptsLanguages: jest.fn(),
-    get: jest.fn(),
+    get: getMethod,
+    header: getMethod,
     is: jest.fn(),
     range: jest.fn(),
     ...options,
