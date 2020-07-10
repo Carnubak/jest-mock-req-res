@@ -15,7 +15,7 @@
   "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch",
-    "test": "jest --runInBand",
+    "test": "jest --watch --runInBand",
     "coverage": "jest --coverage --runInBand"
   },
   "repository": {
@@ -72,6 +72,10 @@
     }
   },
   "jest": {
-    "preset": "ts-jest"
+    "preset": "ts-jest",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/test/testHelper.ts"
+    ]
   }
 }
