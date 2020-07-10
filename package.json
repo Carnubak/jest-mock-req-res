@@ -1,6 +1,6 @@
 {
   "name": "jest-mock-req-res",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Jest mocks for Express Request and Response objects. Inspired by mock-req-res.",
   "source": "src/index.ts",
   "main": "dist/index.js",
@@ -16,7 +16,8 @@
     "build": "microbundle",
     "dev": "microbundle watch",
     "test": "jest --watch --runInBand",
-    "coverage": "jest --coverage --runInBand"
+    "coverage": "jest --coverage --runInBand",
+    "prepublishOnly": "npm run build"
   },
   "repository": {
     "type": "git",
