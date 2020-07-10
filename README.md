@@ -4,7 +4,7 @@
 
 # Motivation
 
-The mocks provided by `mock-req-res` are very useful due to their simplicity of use, but they depend on `sinon`, whereas I've been working in teams that use `jest` as their weapon o choice for testing. That's why I decided to replace the Sinon stubs with Jest spies. In addition, this package is written in Typescript and typings are provided.
+The mocks provided by `mock-req-res` are very useful due to their simplicity of use, but they depend on `sinon`, whereas I've been working in teams that use `jest` as their weapon of choice for testing. That's why I decided to replace the Sinon stubs with Jest spies. In addition, this package is written in Typescript and typings are provided.
 
 Much like the original `mock-req-res` package, the intention of these mocks is to allow you to write properly isolated tests for your Express middleware functions.
 
