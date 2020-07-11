@@ -1,4 +1,4 @@
-import { mockRequest } from '../src/mockRequest';
+import { mockRequest } from '../src';
 import { commonTests } from './testHelper';
 
 describe('mockRequest()', () => {
