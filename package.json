@@ -12,6 +12,10 @@
     "lib": "dist",
     "test": "test"
   },
+  "files": [
+    "dist/*.js",
+    "dist/*.d.ts"
+  ],
   "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch",
